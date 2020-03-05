@@ -1,0 +1,54 @@
+Package: secuTrialR
+Type: Package
+Title: Handling of data from the clinical data management system secuTrial 
+Version: 0.8.6
+Author:
+    c(person(given = "Pascal",
+             family = "Benkert",
+             role = c("cre", "aut"),
+             email = "pascal.benkert@usb.ch"),
+      person(given = "Alan",
+             family = "Haynes",
+             role = c("aut"),
+             email = "alan.haynes@ctu.unibe.ch"),
+      person(given = "Milica",
+             family = "Markovic",
+             role = c("aut"),
+             email = "milica.markovic@usb.ch"),
+      person(given = "Constantin",
+             family = "Sluka",
+             role = c("aut"),
+             email = "constantin.sluka@usb.ch"),
+      person(given = "Patrick R.",
+             family = "Wright",
+             role = c("aut"),
+             email = "patrick.wright@usb.ch"))
+Maintainer: Patrick R. Wright <patrick.wright@usb.ch>, Alan Haynes <alan.haynes@ctu.unibe.ch>, Milica Markovic <milica.markovic@usb.ch>
+Description: This R package is intended to standardize and simplify working with data
+    exported from the clinical data management system (CDMS) secuTrial. The primary
+    data export the package works with is a standard non-rectangular export.
+Depends:
+    R (>= 3.0.2),
+    haven (>= 2.2.0),
+    igraph,
+    readr,
+    readxl,
+    tcltk,
+    stringr,
+    tibble,
+    purrr,
+    tidyr,
+    dplyr,
+    lubridate
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Suggests: 
+    knitr,
+    lintr,
+    rmarkdown,
+    testthat,
+    shiny,
+    tufte
+VignetteBuilder: knitr
