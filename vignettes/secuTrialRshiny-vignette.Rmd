@@ -1,0 +1,71 @@
+---
+title: "secuTrialRshiny - a walkthrough"
+author: "Patrick R. Wright, Milica Markovic, Alan Haynes"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+toc: true
+vignette: >
+  %\VignetteIndexEntry{secuTrialR-package-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+\newpage
+
+# Introduction
+
+> “If I had just five minutes to chop down a tree I would spend the first two and a half minutes sharpening my axe.”
+
+> `r tufte::quote_footer('--- An anonymous woodsman')`
+
+\vspace{13pt}
+
+This R package provides functions for creating and running a Shiny web application 
+for handling data from the clinical data management system (CDMS) 
+[\textcolor{blue}{secuTrial}](https://www.secutrial.com/en/). This package builds on SCTO's data management R package [secuTrialR](https://github.com/SwissClinicalTrialOrganisation/secuTrialR).
+The package is developed and maintained by the Swiss Clinical Trial Organisation
+([\textcolor{blue}{SCTO}](https://www.scto.ch/en/news.html)).
+
+This vignette will teach you how to use the `secuTrialRshiny` package.
+
+```{r, include = FALSE}
+# needed so that the as.data.frame part of the vignette
+# does not need a restart of the session everytime the
+# vignette is built
+rm(list = ls())
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Installing
+
+Let's get started by installing the package straight from 
+[\textcolor{blue}{GitHub}](https://github.com/SwissClinicalTrialOrganisation/secuTrialRshiny)
+and then loading it. For this you will need to have `devtools` installed. 
+\vspace{5pt}
+
+```{r, eval = FALSE}
+# install
+devtools::install_github("SwissClinicalTrialOrganisation/secuTrialRshiny")
+```
+
+To run the app localy on your computer after installation, run
+
+```{r, eval = FALSE}
+secuTrialRshiny::run_shiny()
+```
+
+# Disclaimer
+The descriptions of the secuTrial exports used in this vignette and other `secuTrialR` and `secuTrialRshiny`
+documentation correspond to our understanding of them and come with no warranty.
+For in depth details please refer to the original secuTrial manuals.
+
+# The `sessionInfo()`
+
+```{r}
+sessionInfo()
+```
+
+
