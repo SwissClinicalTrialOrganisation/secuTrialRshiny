@@ -1,2 +1,2 @@
-# shiny_secuTrialR 0.0.1
+# secuTrialRshiny 0.0.1
 * initial release

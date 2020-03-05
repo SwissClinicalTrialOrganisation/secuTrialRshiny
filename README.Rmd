@@ -10,7 +10,7 @@ An R package to handle data from the clinical data management system (CDMS) [sec
 ## Installing from github with devtools
 
 ```{r, eval = FALSE}
-devtools::install_github("SwissClinicalTrialOrganisation/shiny_secuTrialR")
+devtools::install_github("SwissClinicalTrialOrganisation/secuTrialRshiny")
 ```
 
 
@@ -19,13 +19,13 @@ devtools::install_github("SwissClinicalTrialOrganisation/shiny_secuTrialR")
 
 ```{r, eval = FALSE}
 # run tests
-devtools::test("shiny_secuTrialR")
+devtools::test("secuTrialRshiny")
 # spell check -> will contain some technical terms beyond the below list which is fine
 ignore_words <- c("AdminTool", "allforms", "casenodes", "CDMS", "codebook",
                   "codebooks", "datetime" ,"dir" ,"Hmisc" ,"igraph",
                   "labelled", "mnp", "savedforms", "secutrial", "secuTrial", 
                   "secuTrialdata", "tcltk", "tibble")
-devtools::spell_check("shiny_secuTrialR", ignore = ignore_words)
+devtools::spell_check("secuTrialRshiny", ignore = ignore_words)
 ```
 
 ### Linting with lintr
@@ -33,7 +33,7 @@ devtools::spell_check("shiny_secuTrialR", ignore = ignore_words)
 ```{r, eval = FALSE}
 # lint the package -> should be clean
 library(lintr)
-lint_package("shiny_secuTrialR", linters = with_defaults(camel_case_linter = NULL,
+lint_package("secuTrialRshiny", linters = with_defaults(camel_case_linter = NULL,
                                                    object_usage_linter = NULL,
                                                    line_length_linter(125)))
 ```
@@ -41,7 +41,7 @@ lint_package("shiny_secuTrialR", linters = with_defaults(camel_case_linter = NUL
 ### Building the vignette
 ```{r, eval = FALSE}
 library(rmarkdown)
-render("vignettes/shiny_secuTrialR-package-vignette.Rmd", output_format=c("pdf_document"))
+render("vignettes/secuTrialRshiny-package-vignette.Rmd", output_format=c("pdf_document"))
 ```
 
 ### Generating the README file
@@ -55,7 +55,7 @@ knit("README.Rmd")
 
 ### Guidelines for contributors
 
-Requests for new features and bug fixes should first be documented as an [Issue](https://github.com/SwissClinicalTrialOrganisation/shiny_secuTrialR/issues) on GitHub.
+Requests for new features and bug fixes should first be documented as an [Issue](https://github.com/SwissClinicalTrialOrganisation/secuTrialRshiny/issues) on GitHub.
 Subsequently, in order to contribute to this R package you should fork the main repository.
 After you have made your changes please run the 
 [tests](README.md#testing-with-devtools)

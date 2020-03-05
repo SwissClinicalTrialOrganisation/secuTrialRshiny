@@ -1,4 +1,5 @@
 library(testthat)
 library(secuTrialR)
+library(secuTrialRshiny)
 
-test_check("secuTrialR")
+test_check("secuTrialRshiny")
