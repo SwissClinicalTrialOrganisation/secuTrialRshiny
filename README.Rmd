@@ -48,7 +48,7 @@ lint_package("secuTrialRshiny", linters = with_defaults(camel_case_linter = NULL
 ### Building the vignette
 ```{r, eval = FALSE}
 library(rmarkdown)
-render("vignettes/secuTrialRshiny-package-vignette.Rmd", output_format=c("pdf_document"))
+render("vignettes/secuTrialRshiny-vignette.Rmd", output_format=c("pdf_document"))
 ```
 
 ### Generating the README file
