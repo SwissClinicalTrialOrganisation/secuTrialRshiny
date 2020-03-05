@@ -1,4 +1,15 @@
-# Export module UI function
+#' Shiny module UI function for data conversion and export
+#'
+#' This function represents a shiny dashboard UI module that allows users to
+#' convert secuTrialRdata to STATA, SAS or SPSS compatible formats, and download
+#' them as a zip archive.
+#'
+#'@param id string containing a namespace identifier
+#'@param label string to be used as sidebar tab label
+#'@return shiny.tag list object containing the tab item content
+#'@seealso \code{\link{mod_export}}
+#'@export
+#'
 mod_export_UI <- function(id, label) {
   ns <- NS(id)
   # Last tab content / Download
@@ -21,37 +32,22 @@ mod_export_UI <- function(id, label) {
   )
 }
 
-# Export module server function
+#' Shiny module server function for data conversion and export
+#'
+#' This function represents a shiny dashboard server module that allows users to
+#' convert secuTrialRdata to STATA, SAS or SPSS compatible formats, and download
+#' them as a zip archive.
+#'
+#'@param input session's input object
+#'@param output session's output object
+#'@param session session object environment
+#'@param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
+#'@seealso \code{\link{mod_export_UI}}
+#'@export
+#'
 mod_export <- function(input, output, session, sT_export) {
-
   output$downloadDataStata <- downloader(file_name = "stata.zip", format = "dta", sT_export)
   output$downloadDataSas <- downloader(file_name = "sas7bdat.zip", format = "sas", sT_export)
   output$downloadDataXpt <- downloader(file_name = "xpt.zip", format = "xpt", sT_export)
   output$downloadDataSav <- downloader(file_name = "sav.zip", format = "sav", sT_export)
-
-}
-
-
-downloader <- function(file_name, format, sT_export) {
-
-  downloadHandler(
-    tdir <- tempdir(),
-    # This function returns a string which tells the client
-    # browser what name to use when saving the file.
-    filename = function() {
-      file_name
-    },
-    # This function should write data to a file given to it by
-    # the argument 'file'.
-    content = function(file) {
-      # Write to a file specified by the 'file' argument
-      write_secuTrial(sT_export(), format = format, path = tdir)
-      # exception handling for sas7bdat
-      if (format == "sas") format <- "sas7bdat"
-      dta_loc <- list.files(path = tdir, full.names = TRUE, pattern = paste0(format, "$"))
-      # -j prevents keeping directory structure
-      zip(zipfile = file, files = dta_loc, flags = "-j")
-    }
-  )
-
 }

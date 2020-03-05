@@ -1,7 +1,16 @@
-## Form completeness module UI function
+#' Shiny module UI function for form completeness monitoring
+#'
+#' This function represents a shiny dashboard UI module that allows users to
+#' view a form completeness table.
+#'
+#'@param id string containing a namespace identifier
+#'@param label string to be used as sidebar tab label
+#'@return shiny.tag list object containing the tab item content
+#'@seealso \code{\link{mod_formcomplete}}
+#'@export
+#'
 mod_formcomplete_UI <- function(id, label) {
   ns <- NS(id)
-  # Fourth tab content
   tabItem(tabName = label,
           h2("Form completeness"),
           #checkboxInput(inputId = ns("percent"), label = "Percent", value = TRUE),
@@ -24,9 +33,19 @@ mod_formcomplete_UI <- function(id, label) {
   )
 }
 
-# Form completeness module server function
+#' Shiny module server function for form completeness monitoring
+#'
+#' This function represents a shiny dashboard server module that allows users to
+#' view a form completeness table.
+#'
+#'@param input session's input object
+#'@param output session's output object
+#'@param session session object environment
+#'@param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
+#'@seealso \code{\link{mod_formcomplete_UI}}
+#'@export
+#'
 mod_formcomplete <- function(input, output, session, sT_export) {
-
   output$form_completeness_count <- renderTable({
     if (input$counts) {
       table <- form_status_summary(sT_export())
@@ -40,7 +59,6 @@ mod_formcomplete <- function(input, output, session, sT_export) {
       }
     }
   })
-
   output$form_completeness_perc <- renderTable({
     if (input$percent) {
       table <- form_status_summary(sT_export())

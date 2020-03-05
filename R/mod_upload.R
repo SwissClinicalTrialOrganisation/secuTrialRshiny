@@ -1,4 +1,15 @@
-# Upload module UI function
+#' Shiny module UI function for data upload
+#'
+#' This function represents a shiny dashboard UI module that allows users to
+#' upload secuTrial export .zip to the app. This is a prerequisite for using other
+#' modules of secuTrialRshiny.
+#'
+#'@param id string containing a namespace identifier
+#'@param label string to be used as sidebar tab label
+#'@return shiny.tag list object containing the tab item content
+#'@seealso \code{\link{mod_upload}}
+#'@export
+#'
 mod_upload_UI <- function(id, label){
   ns <- NS(id)
   tabItem(tabName = label,
@@ -16,7 +27,19 @@ mod_upload_UI <- function(id, label){
   )
 }
 
-# Upload module server function
+#' Shiny module server function for data upload
+#'
+#' This function represents a shiny dashboard server module that allows users to
+#' upload secuTrial export .zip to the app. This is a prerequisite for using other
+#' modules of secuTrialRshiny.
+#'
+#'@param input session's input object
+#'@param output session's output object
+#'@param session session object environment
+#'@param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
+#'@seealso \code{\link{mod_upload_UI}}
+#'@export
+#'
 mod_upload <- function(input, output, session, sT_export){
   # read upload data
   observeEvent(input$secuTrial_export_file$datapath, {

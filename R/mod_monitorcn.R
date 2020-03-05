@@ -1,4 +1,15 @@
-# Casenode monitoring module UI function
+#' Shiny module UI function for casenode monitoring
+#'
+#' This function represents a shiny dashboard UI module that allows users to
+#' generate a list of random participants for monitoring.
+#' The list can be downloaded as a csv file.
+#'
+#'@param id string containing a namespace identifier
+#'@param label string to be used as sidebar tab label
+#'@return shiny.tag list object containing the tab item content
+#'@seealso \code{\link{mod_monitorcn}}
+#'@export
+#'
 mod_monitorcn_UI <- function(id, label) {
   ns <- NS(id)
   tabItem(tabName = label,
@@ -24,7 +35,19 @@ mod_monitorcn_UI <- function(id, label) {
   )
 }
 
-# Casenode monitoring module server function
+#' Shiny module server function for casenode monitoring
+#'
+#' This function represents a shiny dashboard server module that allows users to
+#' generate a list of random participants for monitoring.
+#' The list can be downloaded as a csv file.
+#'
+#'@param input session's input object
+#'@param output session's output object
+#'@param session session object environment
+#'@param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
+#'@seealso \code{\link{mod_monitorcn_UI}}
+#'@export
+#'
 mod_monitorcn <- function(input, output, session, sT_export) {
   # reactive button
   rdm_cases <- eventReactive(input$create_mon_table, {

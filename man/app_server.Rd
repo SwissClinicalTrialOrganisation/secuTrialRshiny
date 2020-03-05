@@ -6,8 +6,13 @@
 \usage{
 app_server(input, output)
 }
+\arguments{
+\item{input}{session's input object}
+
+\item{output}{session's output object}
+}
 \description{
-Calls modules listed in app_ui, and passes on relevant data.
+Calls all modules required by app_ui, and passes on relevant data.
 }
 \seealso{
 \code{\link{app_ui}}, \code{\link{run_shiny}}

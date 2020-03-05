@@ -2,7 +2,8 @@
 #'
 #' Controls the general appearance, header, sidebar, body, tabs with modules, etc.
 #'
-#' @seealso \code{\link{app_server}}
+#' @return shiny.tag list object containing the dashboard page
+#' @seealso \code{\link{app_server}}, \code{\link{run_shiny}}
 #' @export
 #'
 app_ui <- function(){
@@ -51,11 +52,12 @@ app_ui <- function(){
   )
 }
 
-
 #' Main Shiny server function for secuTrialRshiny
 #'
-#' Calls modules listed in app_ui, and passes on relevant data.
+#' Calls all modules required by app_ui, and passes on relevant data.
 #'
+#' @param input session's input object
+#' @param output session's output object
 #' @seealso \code{\link{app_ui}}, \code{\link{run_shiny}}
 #' @export
 #'

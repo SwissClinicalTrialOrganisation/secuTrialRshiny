@@ -1,5 +1,14 @@
-## mod_recruittable.R
-# Recruitment table module UI function
+#' Shiny module UI function for recruitment table display
+#'
+#' This function represents a shiny dashboard UI module that allows users to
+#' view a secuTrialR recruitment table.
+#'
+#'@param id string containing a namespace identifier
+#'@param label string to be used as sidebar tab label
+#'@return shiny.tag list object containing the tab item content
+#'@seealso \code{\link{mod_recruittable}}
+#'@export
+#'
 mod_recruittable_UI <- function(id, label) {
   ns <- NS(id)
 
@@ -12,9 +21,19 @@ mod_recruittable_UI <- function(id, label) {
   )
 }
 
-# Recruitment table module server function
+#' Shiny module server function for recruitment table display
+#'
+#' This function represents a shiny dashboard server module that allows users to
+#' view a secuTrialR recruitment table.
+#'
+#'@param input session's input object
+#'@param output session's output object
+#'@param session session object environment
+#'@param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
+#'@seealso \code{\link{mod_recruittable_UI}}
+#'@export
+#'
 mod_recruittable <- function(input, output, session, sT_export) {
-
   output$annual_recruitment <- renderTable({
     annual_recruitment(sT_export())
   })

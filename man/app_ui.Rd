@@ -6,9 +6,12 @@
 \usage{
 app_ui()
 }
+\value{
+shiny.tag list object containing the dashboard page
+}
 \description{
 Controls the general appearance, header, sidebar, body, tabs with modules, etc.
 }
 \seealso{
-\code{\link{app_server}}
+\code{\link{app_server}}, \code{\link{run_shiny}}
 }
