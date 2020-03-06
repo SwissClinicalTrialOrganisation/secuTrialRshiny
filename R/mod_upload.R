@@ -82,7 +82,6 @@ mod_upload_srv <- function(input, output, session, sT_export){
       text = icon("lightbulb"),
       btn_colors = "#dd4b39",
       btn_labels = "OK"
-      #type = "success"
     )
   })
 }

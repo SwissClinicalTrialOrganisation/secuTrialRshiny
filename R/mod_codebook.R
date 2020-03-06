@@ -51,7 +51,6 @@ mod_codebook_srv <- function(input, output, session, sT_export) {
   })
 
   output$items <- renderTable({
-    #cols <- c("ffcolname", "itemtype", "fflabel", "unit", "lookuptable")
     sT_export()[[sT_export()$export_options$meta_names$items]]#[cols]
   })
 
@@ -60,7 +59,6 @@ mod_codebook_srv <- function(input, output, session, sT_export) {
   })
 
   output$cases <- renderTable({
-    #cols <- c("mnpaid", "mnpvisstartdate")
     sT_export()[[sT_export()$export_options$meta_names$casenodes]]#[cols]
   })
 
