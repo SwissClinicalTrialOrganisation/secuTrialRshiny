@@ -34,19 +34,22 @@ This Shiny app is built in a [modular fashion](https://shiny.rstudio.com/article
   * `R/app.R` contains the main UI function `app_UI()` and the main app server function `app_srv()`
   * module functions are saved in `R/mod_*.R` files
   * module UI functions are called `mod_*_UI()`
-  * modules server functions are called `mod_*_srv()`
+  * module server functions are called `mod_*_srv()`
   * supporting functions that do not contain an entire UI or server module are also in the `R/` directory
   * `app_UI()` calls all UI module functions
   * `app_srv()` calls all server module functions
 
 ### Reusing modules
 
-Note that each module currently represents a content of a shinydashboard sidebar tab (`shinydashboard::menuItem()`). 
+Each `secuTrialRshiny` module currently represents a content of a shinydashboard sidebar tab (`shinydashboard::menuItem()`). 
 This means that you can reuse the modules from this package in your own custom Shiny dashboards. 
 Just add a secuTrialRshiny module to your main app UI as a new `shinydashboard::menuItem()`, 
 and call the module from your main server function using `shiny::callModule()`.
 
 ### Extending the app
+
+Note that currently all modules represent contents of Shiny dashboard sidebar tabs. 
+The example is based on the assumption that you are also creating such a module.
 
 Create a new `R/mod_{module_name}.R` file for the new module. It should contain:
 
@@ -85,9 +88,6 @@ get_modules <- function(){
 `mod` is then referenced to when loading a new module, as you will see below.
 
 Next, you will need to extend `app_UI()` and `app_srv()`, such that they call the new `mod_{module_name}_UI()` and `mod_{module_name}_srv()`
-
-Note that currently all modules represent contents of Shiny dashboard sidebar tabs. The example is based on the assumption that
-you are also creating such a module.
 
 You will add the new module UI function as a new menuItem() inside of `app_UI()`. Here is an example for new_module:
 
