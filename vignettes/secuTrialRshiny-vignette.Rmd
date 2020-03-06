@@ -14,12 +14,6 @@ vignette: >
 
 # Introduction
 
-> “If I had just five minutes to chop down a tree I would spend the first two and a half minutes sharpening my axe.”
-
-> `r tufte::quote_footer('--- An anonymous woodsman')`
-
-\vspace{13pt}
-
 This R package provides functions for creating and running a Shiny web application 
 for handling data from the clinical data management system (CDMS) 
 [\textcolor{blue}{secuTrial}](https://www.secutrial.com/en/). This package builds on SCTO's data management R package [secuTrialR](https://github.com/SwissClinicalTrialOrganisation/secuTrialR).
