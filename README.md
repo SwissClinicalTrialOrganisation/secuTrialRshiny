@@ -1,9 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-
-# secuTrialR ![travis](https://api.travis-ci.com/SwissClinicalTrialOrganisation/secuTrialR.svg?branch=master) [![codecov](https://codecov.io/github/SwissClinicalTrialOrganisation/secuTrialR/branch/master/graphs/badge.svg)](https://codecov.io/github/SwissClinicalTrialOrganisation/secuTrialR) [![](https://img.shields.io/badge/dev%20version-0.8.6-blue.svg)](https://github.com/SwissClinicalTrialOrganisation/secuTrialR) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/SwissClinicalTrialOrganisation/secuTrialR?branch=master&svg=true)](https://ci.appveyor.com/project/SwissClinicalTrialOrganisation/secuTrialR)
-
+# secuTrialRshiny
 
 An R package containing a web app for handling of data from the clinical data management system (CDMS) [secuTrial](https://www.secutrial.com/en/). This package builds on SCTO's data management R package [secuTrialR](https://github.com/SwissClinicalTrialOrganisation/secuTrialR).
 
@@ -20,7 +18,8 @@ Run the app localy on your computer after installation
 
 
 ```r
-secuTrialRshiny::run_shiny()
+library(secuTrialRshiny)
+run_shiny()
 ```
 
 ## For contributors
@@ -53,7 +52,7 @@ lint_package("secuTrialRshiny", linters = with_defaults(camel_case_linter = NULL
 
 ```r
 library(rmarkdown)
-render("vignettes/secuTrialRshiny-package-vignette.Rmd", output_format=c("pdf_document"))
+render("vignettes/secuTrialRshiny-vignette.Rmd", output_format=c("pdf_document"))
 ```
 
 ### Generating the README file
