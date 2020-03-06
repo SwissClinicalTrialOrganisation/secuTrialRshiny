@@ -19,5 +19,5 @@ This function represents a shiny dashboard UI module that allows users to
 view a secuTrialR recruitment plot.
 }
 \seealso{
-\code{\link{mod_recruitplot}}
+\code{\link{mod_recruitplot_srv}}
 }

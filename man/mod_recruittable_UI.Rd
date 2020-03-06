@@ -19,5 +19,5 @@ This function represents a shiny dashboard UI module that allows users to
 view a secuTrialR recruitment table.
 }
 \seealso{
-\code{\link{mod_recruittable}}
+\code{\link{mod_recruittable_srv}}
 }

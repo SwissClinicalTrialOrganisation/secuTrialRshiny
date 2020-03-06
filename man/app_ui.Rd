@@ -13,5 +13,5 @@ shiny.tag list object containing the dashboard page
 Controls the general appearance, header, sidebar, body, tabs with modules, etc.
 }
 \seealso{
-\code{\link{app_server}}, \code{\link{run_shiny}}
+\code{\link{app_srv}}, \code{\link{run_shiny}}
 }

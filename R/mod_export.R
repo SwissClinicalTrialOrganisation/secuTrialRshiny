@@ -7,7 +7,7 @@
 #'@param id string containing a namespace identifier
 #'@param label string to be used as sidebar tab label
 #'@return shiny.tag list object containing the tab item content
-#'@seealso \code{\link{mod_export}}
+#'@seealso \code{\link{mod_export_srv}}
 #'@export
 #'
 mod_export_UI <- function(id, label) {
@@ -45,7 +45,7 @@ mod_export_UI <- function(id, label) {
 #'@seealso \code{\link{mod_export_UI}}
 #'@export
 #'
-mod_export <- function(input, output, session, sT_export) {
+mod_export_srv <- function(input, output, session, sT_export) {
   output$downloadDataStata <- downloader(file_name = "stata.zip", format = "dta", sT_export)
   output$downloadDataSas <- downloader(file_name = "sas7bdat.zip", format = "sas", sT_export)
   output$downloadDataXpt <- downloader(file_name = "xpt.zip", format = "xpt", sT_export)

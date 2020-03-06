@@ -19,5 +19,5 @@ This function represents a shiny dashboard UI module that allows users to
 view a plot of the visit plan.
 }
 \seealso{
-\code{\link{mod_visitplan}}
+\code{\link{mod_visitplan_srv}}
 }

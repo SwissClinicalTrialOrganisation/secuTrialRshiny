@@ -10,5 +10,5 @@ run_shiny()
 You can run the web application by calling the run_shiny() function.
 }
 \seealso{
-\code{\link{app_server}}, \code{\link{app_ui}}
+\code{\link{app_srv}}, \code{\link{app_ui}}
 }

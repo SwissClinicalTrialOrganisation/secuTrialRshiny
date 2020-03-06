@@ -7,7 +7,7 @@
 #'@param id string containing a namespace identifier
 #'@param label string to be used as sidebar tab label
 #'@return shiny.tag list object containing the tab item content
-#'@seealso \code{\link{mod_monitorcn}}
+#'@seealso \code{\link{mod_monitorcn_srv}}
 #'@export
 #'
 mod_monitorcn_UI <- function(id, label) {
@@ -48,7 +48,7 @@ mod_monitorcn_UI <- function(id, label) {
 #'@seealso \code{\link{mod_monitorcn_UI}}
 #'@export
 #'
-mod_monitorcn <- function(input, output, session, sT_export) {
+mod_monitorcn_srv <- function(input, output, session, sT_export) {
   # reactive button
   rdm_cases <- eventReactive(input$create_mon_table, {
     perc <- input$percentage / 100

@@ -19,5 +19,5 @@ This function represents a shiny dashboard UI module that allows users to
 display a codebook of a secuTrialRdata object.
 }
 \seealso{
-\code{\link{mod_codebook}}
+\code{\link{mod_codebook_srv}}
 }

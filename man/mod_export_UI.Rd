@@ -20,5 +20,5 @@ convert secuTrialRdata to STATA, SAS or SPSS compatible formats, and download
 them as a zip archive.
 }
 \seealso{
-\code{\link{mod_export}}
+\code{\link{mod_export_srv}}
 }

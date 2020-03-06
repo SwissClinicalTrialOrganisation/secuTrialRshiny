@@ -20,5 +20,5 @@ generate a list of random participants for monitoring.
 The list can be downloaded as a csv file.
 }
 \seealso{
-\code{\link{mod_monitorcn}}
+\code{\link{mod_monitorcn_srv}}
 }

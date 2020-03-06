@@ -6,7 +6,7 @@
 #'@param id string containing a namespace identifier
 #'@param label string to be used as sidebar tab label
 #'@return shiny.tag list object containing the tab item content
-#'@seealso \code{\link{mod_codebook}}
+#'@seealso \code{\link{mod_codebook_srv}}
 #'@export
 #'
 mod_codebook_UI <- function(id, label) {
@@ -41,7 +41,7 @@ mod_codebook_UI <- function(id, label) {
 #'@seealso \code{\link{mod_codebook_UI}}
 #'@export
 #'
-mod_codebook <- function(input, output, session, sT_export) {
+mod_codebook_srv <- function(input, output, session, sT_export) {
   output$forms <- renderTable({
     sT_export()[[sT_export()$export_options$meta_names$forms]]
   })

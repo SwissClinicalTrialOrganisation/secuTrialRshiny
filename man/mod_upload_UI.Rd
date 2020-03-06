@@ -20,5 +20,5 @@ upload secuTrial export .zip to the app. This is a prerequisite for using other
 modules of secuTrialRshiny.
 }
 \seealso{
-\code{\link{mod_upload}}
+\code{\link{mod_upload_srv}}
 }

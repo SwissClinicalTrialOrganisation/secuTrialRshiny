@@ -6,7 +6,7 @@
 #'@param id string containing a namespace identifier
 #'@param label string to be used as sidebar tab label
 #'@return shiny.tag list object containing the tab item content
-#'@seealso \code{\link{mod_recruitplot}}
+#'@seealso \code{\link{mod_recruitplot_srv}}
 #'@export
 #'
 mod_recruitplot_UI <- function(id, label) {
@@ -32,7 +32,7 @@ mod_recruitplot_UI <- function(id, label) {
 #'@seealso \code{\link{mod_recruitplot_UI}}
 #'@export
 #'
-mod_recruitplot <- function(input, output, session, sT_export) {
+mod_recruitplot_srv <- function(input, output, session, sT_export) {
   output$downloadDataRecruitmentPlot <- downloadHandler(
     # This function returns a string which tells the client
     # browser what name to use when saving the file.

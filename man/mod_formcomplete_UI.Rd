@@ -19,5 +19,5 @@ This function represents a shiny dashboard UI module that allows users to
 view a form completeness table.
 }
 \seealso{
-\code{\link{mod_formcomplete}}
+\code{\link{mod_formcomplete_srv}}
 }

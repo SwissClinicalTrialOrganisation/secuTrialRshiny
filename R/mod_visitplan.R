@@ -6,7 +6,7 @@
 #'@param id string containing a namespace identifier
 #'@param label string to be used as sidebar tab label
 #'@return shiny.tag list object containing the tab item content
-#'@seealso \code{\link{mod_visitplan}}
+#'@seealso \code{\link{mod_visitplan_srv}}
 #'@export
 #'
 mod_visitplan_UI <- function(id, label) {
@@ -32,7 +32,7 @@ mod_visitplan_UI <- function(id, label) {
 #'@seealso \code{\link{mod_visitplan_UI}}
 #'@export
 #'
-mod_visitplan <- function(input, output, session, sT_export) {
+mod_visitplan_srv <- function(input, output, session, sT_export) {
   output$visit_structure <- renderPlot({
     plot(visit_structure(sT_export()))
   })

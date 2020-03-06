@@ -6,7 +6,7 @@
 #'@param id string containing a namespace identifier
 #'@param label string to be used as sidebar tab label
 #'@return shiny.tag list object containing the tab item content
-#'@seealso \code{\link{mod_formcomplete}}
+#'@seealso \code{\link{mod_formcomplete_srv}}
 #'@export
 #'
 mod_formcomplete_UI <- function(id, label) {
@@ -45,7 +45,7 @@ mod_formcomplete_UI <- function(id, label) {
 #'@seealso \code{\link{mod_formcomplete_UI}}
 #'@export
 #'
-mod_formcomplete <- function(input, output, session, sT_export) {
+mod_formcomplete_srv <- function(input, output, session, sT_export) {
   output$form_completeness_count <- renderTable({
     if (input$counts) {
       table <- form_status_summary(sT_export())

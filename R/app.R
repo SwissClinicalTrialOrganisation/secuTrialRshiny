@@ -3,7 +3,7 @@
 #' Controls the general appearance, header, sidebar, body, tabs with modules, etc.
 #'
 #' @return shiny.tag list object containing the dashboard page
-#' @seealso \code{\link{app_server}}, \code{\link{run_shiny}}
+#' @seealso \code{\link{app_srv}}, \code{\link{run_shiny}}
 #' @export
 #'
 app_ui <- function(){
@@ -61,18 +61,18 @@ app_ui <- function(){
 #' @seealso \code{\link{app_ui}}, \code{\link{run_shiny}}
 #' @export
 #'
-app_server <- function(input, output) {
+app_srv <- function(input, output) {
   # get all module names
   mod <- get_modules()
   # init the sT export reactive Val
   sT_export <- reactiveVal()
   # call all server modules
-  callModule(mod_upload, mod$upload, sT_export)
-  callModule(mod_recruitplot, mod$recruitplot, sT_export)
-  callModule(mod_recruittable, mod$recruittable, sT_export)
-  callModule(mod_formcomplete, mod$formcomplete, sT_export)
-  callModule(mod_visitplan, mod$visitplan, sT_export)
-  callModule(mod_monitorcn, mod$monitorcn, sT_export)
-  callModule(mod_codebook, mod$codebook, sT_export)
-  callModule(mod_export, mod$export, sT_export)
+  callModule(mod_upload_srv, mod$upload, sT_export)
+  callModule(mod_recruitplot_srv, mod$recruitplot, sT_export)
+  callModule(mod_recruittable_srv, mod$recruittable, sT_export)
+  callModule(mod_formcomplete_srv, mod$formcomplete, sT_export)
+  callModule(mod_visitplan_srv, mod$visitplan, sT_export)
+  callModule(mod_monitorcn_srv, mod$monitorcn, sT_export)
+  callModule(mod_codebook_srv, mod$codebook, sT_export)
+  callModule(mod_export_srv, mod$export, sT_export)
 }

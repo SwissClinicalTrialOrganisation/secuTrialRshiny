@@ -6,7 +6,7 @@
 #'@param id string containing a namespace identifier
 #'@param label string to be used as sidebar tab label
 #'@return shiny.tag list object containing the tab item content
-#'@seealso \code{\link{mod_recruittable}}
+#'@seealso \code{\link{mod_recruittable_srv}}
 #'@export
 #'
 mod_recruittable_UI <- function(id, label) {
@@ -33,7 +33,7 @@ mod_recruittable_UI <- function(id, label) {
 #'@seealso \code{\link{mod_recruittable_UI}}
 #'@export
 #'
-mod_recruittable <- function(input, output, session, sT_export) {
+mod_recruittable_srv <- function(input, output, session, sT_export) {
   output$annual_recruitment <- renderTable({
     annual_recruitment(sT_export())
   })

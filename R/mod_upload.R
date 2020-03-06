@@ -7,7 +7,7 @@
 #'@param id string containing a namespace identifier
 #'@param label string to be used as sidebar tab label
 #'@return shiny.tag list object containing the tab item content
-#'@seealso \code{\link{mod_upload}}
+#'@seealso \code{\link{mod_upload_srv}}
 #'@export
 #'
 mod_upload_UI <- function(id, label){
@@ -40,7 +40,7 @@ mod_upload_UI <- function(id, label){
 #'@seealso \code{\link{mod_upload_UI}}
 #'@export
 #'
-mod_upload <- function(input, output, session, sT_export){
+mod_upload_srv <- function(input, output, session, sT_export){
   # read upload data
   observeEvent(input$secuTrial_export_file$datapath, {
     curr_export <- read_secuTrial(input$secuTrial_export_file$datapath)
