@@ -14,5 +14,5 @@ Module aliases retrieved via get_modules() are used to define module IDs in shin
 and are also used as tabnames for the sidebar, and for the shiny UI label and id.
 }
 \seealso{
-\code{\link{app_ui}}, \code{\link{app_server}}
+\code{\link{app_ui}}, \code{\link{app_srv}}
 }

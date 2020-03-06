@@ -6,7 +6,7 @@
 #'@param file_name string containing a file name, including the extension
 #'@param format string containing a format identifier for secuTrialR::write_secuTrial()
 #'@param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
-#'@seealso \code{\link{mod_export}}
+#'@seealso \code{\link{mod_export_srv}}
 #'
 downloader <- function(file_name, format, sT_export) {
   downloadHandler(

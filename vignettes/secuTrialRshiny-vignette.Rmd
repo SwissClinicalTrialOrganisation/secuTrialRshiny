@@ -2,7 +2,7 @@
 title: "secuTrialRshiny - a walkthrough"
 author: "Patrick R. Wright, Milica Markovic, Alan Haynes"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: pdf_document
 toc: true
 vignette: >
   %\VignetteIndexEntry{secuTrialR-package-vignette}
@@ -16,7 +16,7 @@ vignette: >
 
 This R package provides functions for creating and running a Shiny web application 
 for handling data from the clinical data management system (CDMS) 
-[\textcolor{blue}{secuTrial}](https://www.secutrial.com/en/). This package builds on SCTO's data management R package [secuTrialR](https://github.com/SwissClinicalTrialOrganisation/secuTrialR).
+[\textcolor{blue}{secuTrial}](https://www.secutrial.com/en/). This package builds on SCTO's data management R package [\textcolor{blue}{secuTrialR}](https://github.com/SwissClinicalTrialOrganisation/secuTrialR).
 The package is developed and maintained by the Swiss Clinical Trial Organisation
 ([\textcolor{blue}{SCTO}](https://www.scto.ch/en/news.html)).
 

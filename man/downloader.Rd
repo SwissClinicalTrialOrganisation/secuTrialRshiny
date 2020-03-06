@@ -18,5 +18,5 @@ This is an internal helper function allowing conversion and download of secuTria
 using a shiny::downloadHandler(). Supported file formats are the ones listed in secuTrialR::write_secuTrial().
 }
 \seealso{
-\code{\link{mod_export}}
+\code{\link{mod_export_srv}}
 }
