@@ -24,11 +24,11 @@ run_shiny()
 
 ### App structure and conventions
 
-This Shiny app is build in a [modular fashion](https://shiny.rstudio.com/articles/modules.html) as an R package:
+This Shiny app is built in a [modular fashion](https://shiny.rstudio.com/articles/modules.html) as an R package:
 
 * All functions needed to run the app are in the `/R` directory
 * You can launch the app with the `run_shiny()` function. The app does not launch if you try to run the `R/app.R` file!
-* The app is build in a modular fashion
+* The app is built in a modular fashion
   * `R/app.R` contains the main UI function `app_UI()` and the main app server function `app_srv()`
   * module functions are saved in `R/mod_*.R` files
   * module UI functions are called `mod_*_UI()`

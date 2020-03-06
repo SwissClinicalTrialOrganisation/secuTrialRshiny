@@ -26,11 +26,11 @@ run_shiny()
 
 ### App structure and conventions
 
-This Shiny app is build in a [modular fashion](https://shiny.rstudio.com/articles/modules.html) as an R package:
+This Shiny app is built in a [modular fashion](https://shiny.rstudio.com/articles/modules.html) as an R package:
 
 * All functions needed to run the app are in the `/R` directory
 * You can launch the app with the `run_shiny()` function. The app does not launch if you try to run the `R/app.R` file!
-* The app is build in a modular fashion
+* The app is built in a modular fashion
   * `R/app.R` contains the main UI function `app_UI()` and the main app server function `app_srv()`
   * module functions are saved in `R/mod_*.R` files
   * module UI functions are called `mod_*_UI()`
@@ -42,13 +42,13 @@ This Shiny app is build in a [modular fashion](https://shiny.rstudio.com/article
 ### Reusing modules
 
 Note that each module currently represents a content of a shinydashboard sidebar tab (`shinydashboard::menuItem()`). 
-This also means that you can reuse the modules from this package in your own custom Shiny dashboards. 
-Just add it to your main app UI as a new `shinydashboard::menuItem()`, 
+This means that you can reuse the modules from this package in your own custom Shiny dashboards. 
+Just add a secuTrialRshiny module to your main app UI as a new `shinydashboard::menuItem()`, 
 and call the module from your main server function using `shiny::callModule()`.
 
 ### Extending the app
 
-Create a new `R/mod_*.R` file for the new module. It should contain:
+Create a new `R/mod_{module_name}.R` file for the new module. It should contain:
 
 * a module UI function `mod_{module_name}_UI()`
 * a module server function `mod_{module_name}_srv()`
@@ -57,32 +57,36 @@ Example for a module called "mod_newmod":
 
 ```r
 ## create new file: R/mod_newmod.R
-mod_newmod_UI <- function(id, label){}
-mod_newmod_srv <- function(input, output, session, sT_export){}
+mod_newmod_UI <- function(id, label){
+  ## ... some UI code ...
+}
+mod_newmod_srv <- function(input, output, session, sT_export){
+   ## ... some server code ... 
+}
 ```
 
 Then extend `get_modules()` such that it contains an alias of the new module `mod_{module_name}`. 
+Here's an example for the fictional "mod_newmod".
 
 
 ```r
 ## modify existing file: R/get_modules.R
 get_modules <- function(){
-  # a list of all module names
+  ## a list of all module names
   mod <- list(
-    upload = "mod_upload",
     ## ... all other modules ...
-    newmodule = "mod_newmodule" # this is for newmod
+    newmodule = "mod_newmod" # add this line for "newmod"
   )
   return(mod)
 }
 ```
 
-This `get_modules()` is called within the main `app_UI()` and `app_srv()` and the results are saved in the `mod` object.
-`mod` is then referenced to when loading a new module.
+`get_modules()` is called within the main `app_UI()` and `app_srv()`, and the results are saved in the `mod` object.
+`mod` is then referenced to when loading a new module, as you will see below.
 
-Now you will need to extend `app_UI()` and `app_srv()`, such that they call the new `mod_{module_name}_UI()` and `mod_{module_name}_srv()`
+Next, you will need to extend `app_UI()` and `app_srv()`, such that they call the new `mod_{module_name}_UI()` and `mod_{module_name}_srv()`
 
-Note that currently all modules represent contents of dashboard's sidebar tabs. The example is based on the assumption that
+Note that currently all modules represent contents of Shiny dashboard sidebar tabs. The example is based on the assumption that
 you are also creating such a module.
 
 You will add the new module UI function as a new menuItem() inside of `app_UI()`. Here is an example for new_module:
@@ -90,7 +94,7 @@ You will add the new module UI function as a new menuItem() inside of `app_UI()`
 
 ```r
 ## file: R/app.R function app_UI()
-menuItem("New sidebar tab module", tabName = mod$new_module, icon = icon("info"))
+menuItem("New sidebar tab module", tabName = mod$newmod, icon = icon("info"))
 ```
 
 Within `app_srv()`, you will need to call the new module server function. It will go along these lines:
@@ -98,7 +102,7 @@ Within `app_srv()`, you will need to call the new module server function. It wil
 
 ```r
 ## file: R/app.R function app_srv()
-callModule(mod_new_module_srv, mod$new_module, sT_export)
+callModule(mod_newmod_srv, mod$newmod, sT_export)
 ```
 
 That's it. Now build the package, and launch the app with `run_shiny()`.
