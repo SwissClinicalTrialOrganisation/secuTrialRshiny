@@ -19,7 +19,7 @@ Maintainer: Patrick R. Wright <patrick.wright@usb.ch>, Alan Haynes <alan.haynes@
 Description: This R package is intended to provide a web application for working with data
     exported from the clinical data management system (CDMS) secuTrial. It relies on the R package secuTrialR.
 Depends:
-    R (>= 3.0.2),
+    R (>= 3.2),
     secuTrialR,
     shiny,
     shinydashboard,
