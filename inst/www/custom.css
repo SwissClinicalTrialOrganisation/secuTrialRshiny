@@ -1,57 +1,98 @@
-.skin-blue .main-header{
-  background-color: #dd4b39;
+.skin-blue{
+  font-weight: 400;
 }
 
-/* header*/
+/* HEADER */
+.skin-blue .main-header{
+  background-color: #ba1e2b;
+}
+
+/* HEADER: logo part */
 .skin-blue .main-header .logo,
 .skin-blue .main-header .logo:hover{
-  background-color: #dd4b39;
+  background-color: #ba1e2b;
   color: white;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
 }
-
+/* HEADER: navigation bar */
 .skin-blue .main-header .navbar{
-  background-color: #dd4b39;
+  background-color: #ba1e2b;
   color: white;
 }
 
-/* menu */
+/* HEADER: menu sidebar-toggle */
 .skin-blue .main-header .navbar .sidebar-toggle,
 .skin-blue .main-header .navbar .sidebar-toggle:hover{
-  background-color: #dd4b39;
+  background-color: #ba1e2b;
   color: white;
 }
 
 /* sidebar */
-.skin-blue .main-sidebar{
-  /*background-color: #2d373c;*/
-  background-color:#e4f1fa;
+.skin-blue .sidebar a{
+    color: white;
 }
 
-.skin-blue .main-sidebar .sidebar .sidebar-menu{
+/* sidebar */
+.skin-blue .main-sidebar{
+  background-color: #444444;
+  color: white;
+  background-image: url("https://www.scto.ch/.resources/scto-module/webresources/img/scto/logo.svg");
+  background-size: 125px 125px;
+  background-position: bottom right;
+  background-repeat: no-repeat;
 }
 
 /* sidebar hover */
 .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
   background-color: white;
-  color: black;
 }
 
+/* sidebar menu items */
+.skin-blue .sidebar-menu {
+  color: #444444;
+}
 /* sidebar menu items active and hover */
 .skin-blue .sidebar-menu > li.active > a,
 .skin-blue .sidebar-menu > li:hover > a{
-  border-left-color: #dd4b39;
+  border-left-color: #ba1e2b;
+  background-color: white;
+  color: #ba1e2b;
 }
 
-.skin-blue .irs-single{
-  background-color:  #a5d7d2;
-}
 
+/* tab contents */
 .skin-blue .content-wrapper{
+  background-color: white;
+  margin-top: 10px;
+}
+
+.skin-blue .wrapper{
   background-color: white;
 }
 
-.skin-blue .content-wrapper .content{
-  padding-top: 20px;
+/* slidebar */
+.skin-blue .js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge,
+.skin-blue .js-irs-0 .irs-single, .js-irs-0 .irs-bar,
+.skin-blue .js-irs-0 .irs-bar{
+  background: #ba1e2b;
+  background-color: #ba1e2b;
+  border-color: #ba1e2b;
+}
+
+.skin-blue .tabbable > .nav > li.active >a{
+  background-color: #ba1e2b;
+  color: white;
+}
+
+.skin-blue .tabbable a{
+  background-color: #444444;
+  color: white;
+}
+
+.skin-blue .swal2-title{
+  color: #444444;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
 }

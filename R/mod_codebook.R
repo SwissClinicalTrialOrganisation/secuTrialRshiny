@@ -14,10 +14,6 @@ mod_codebook_UI <- function(id, label) {
   # seventh tab codebook
   tabItem(tabName = label,
           h2("Codebook"),
-          tags$style(HTML(".tabbable > .nav > li > a",
-                          "{background-color: #444;  color:white}",
-                          ".tabbable > .nav > li[class=active]",
-                          "> a {background-color: #dd4b39; color:white}")),
           tabsetPanel(
             tabPanel("Forms", tableOutput(ns("forms"))),
             tabPanel("Questions", tableOutput(ns("questions"))),

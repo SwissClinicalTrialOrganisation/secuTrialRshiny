@@ -13,6 +13,7 @@
 mod_upload_UI <- function(id, label){
   ns <- NS(id)
   tabItem(tabName = label,
+          h2("Data upload"),
           tags$head(tags$style(".progress-bar{background-color:#dd4b39;}")),
           fileInput(inputId = ns("secuTrial_export_file"),
                     label = "Choose secuTrial export zip",
@@ -80,7 +81,7 @@ mod_upload_srv <- function(input, output, session, sT_export){
       session = session,
       title = "Example data loaded.",
       text = icon("lightbulb"),
-      btn_colors = "#dd4b39",
+      btn_colors = "#ba1e2b",
       btn_labels = "OK"
     )
   })

@@ -1,3 +1,7 @@
+.skin-blue{
+  font-weight: 400;
+}
+
 /* HEADER */
 .skin-blue .main-header{
   background-color: #ba1e2b;
@@ -26,13 +30,13 @@
 
 /* sidebar */
 .skin-blue .sidebar a{
-    color: #2d373c;
+    color: #444444;
 }
 
 /* sidebar */
 .skin-blue .main-sidebar{
   background-color: #e4f1fa;
-  color: #2d373c;
+  color: #444444;
   background-image: url("https://www.scto.ch/.resources/scto-module/webresources/img/scto/logo.svg");
   background-size: 125px 125px;
   background-position: bottom right;
@@ -46,7 +50,7 @@
 
 /* sidebar menu items */
 .skin-blue .sidebar-menu {
-  color: #2d373c;
+  color: #444444;
 }
 /* sidebar menu items active and hover */
 .skin-blue .sidebar-menu > li.active > a,
@@ -56,6 +60,39 @@
   color: #ba1e2b;
 }
 
+
+/* tab contents */
 .skin-blue .content-wrapper{
   background-color: white;
+  margin-top: 10px;
+}
+
+.skin-blue .wrapper{
+  background-color: white;
+}
+
+/* slidebar */
+.skin-blue .js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge,
+.skin-blue .js-irs-0 .irs-single, .js-irs-0 .irs-bar,
+.skin-blue .js-irs-0 .irs-bar{
+  background: #ba1e2b;
+  background-color: #ba1e2b;
+  border-color: #ba1e2b;
+}
+
+.skin-blue .tabbable > .nav > li.active >a{
+  background-color: #ba1e2b;
+  color: white;
+}
+
+.skin-blue .tabbable a{
+  background-color: #444444;
+  color: white;
+}
+
+.skin-blue .swal2-title{
+  color: #444444;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
 }
