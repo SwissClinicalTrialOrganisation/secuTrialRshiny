@@ -1,8 +1,9 @@
+/* HEADER */
 .skin-blue .main-header{
   background-color: #ba1e2b;
 }
 
-/* header*/
+/* HEADER: logo part */
 .skin-blue .main-header .logo,
 .skin-blue .main-header .logo:hover{
   background-color: #ba1e2b;
@@ -10,13 +11,13 @@
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
 }
-
+/* HEADER: navigation bar */
 .skin-blue .main-header .navbar{
   background-color: #ba1e2b;
   color: white;
 }
 
-/* menu */
+/* HEADER: menu sidebar-toggle */
 .skin-blue .main-header .navbar .sidebar-toggle,
 .skin-blue .main-header .navbar .sidebar-toggle:hover{
   background-color: #ba1e2b;
@@ -24,31 +25,29 @@
 }
 
 /* sidebar */
-.skin-blue .main-sidebar{
-  /*background-color: #2d373c;*/
-  background-color:#e4f1fa;
-  color: #2d373c;
-}
-
-.skin-blue .main-sidebar .sidebar .sidebar-menu{
+.skin-blue .sidebar a{
     color: #2d373c;
 }
 
-.skin-blue .sidebar a{
+/* sidebar */
+.skin-blue .main-sidebar{
+  background-color: #e4f1fa;
   color: #2d373c;
+  background-image: url("https://www.scto.ch/.resources/scto-module/webresources/img/scto/logo.svg");
+  background-size: 125px 125px;
+  background-position: bottom right;
+  background-repeat: no-repeat;
 }
 
 /* sidebar hover */
 .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
   background-color: white;
-  color: black;
 }
 
-/* sidebar menu items active and hover */
+/* sidebar menu items */
 .skin-blue .sidebar-menu {
   color: #2d373c;
 }
-
 /* sidebar menu items active and hover */
 .skin-blue .sidebar-menu > li.active > a,
 .skin-blue .sidebar-menu > li:hover > a{
@@ -57,15 +56,6 @@
   color: #ba1e2b;
 }
 
-/* slidebar */
-.skin-blue .irs-bar,
-.skin-blue .irs-bar-edge{
-}
-
 .skin-blue .content-wrapper{
   background-color: white;
-}
-
-.skin-blue .content-wrapper .content{
-  padding-top: 20px;
 }

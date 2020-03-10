@@ -14,19 +14,6 @@ app_ui <- function(){
                 dashboardHeader(title = "SCTO - secuTrialR"),
                 dashboardSidebar(
                   sidebarMenu(
-                    # set icon colors
-
-                    # tags$style(".fa-upload {color:#dd4b39}"),
-                    # tags$style(".fa-signal {color:#dd4b39}"),
-                    # tags$style(".fa-table {color:#dd4b39}"),
-                    # tags$style(".fa-percent {color:#dd4b39}"),
-                    # tags$style(".fa-calendar-alt {color:#dd4b39}"),
-                    # tags$style(".fa-dice {color:#dd4b39}"),
-                    # tags$style(".fa-book {color:#dd4b39}"),
-                    # tags$style(".fa-download {color:#dd4b39}"),
-                    # tags$style(".fa-paper-plane {color:#dd4b39}"),
-                    # tags$style(".fa-lightbulb {color:#dd4b39}"),
-
                     # define sidebar menu items
                     menuItem("Upload", tabName = mod$upload, icon = icon("upload")),
                     menuItem("Recruitment plot", tabName = mod$recruitplot, icon = icon("signal")),
