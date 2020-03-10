@@ -16,7 +16,8 @@ mod_recruitplot_UI <- function(id, label) {
           box(
             plotOutput(ns("recruitment_plot"), height = 500, width = 900), width = 1000
           ),
-          downloadButton(ns("downloadDataRecruitmentPlot"), "Download pdf")
+          downloadButton(ns("downloadDataRecruitmentPlot"), "Download pdf"),
+          com_footer_ui(ns("loaded_file"))
   )
 }
 
@@ -32,7 +33,7 @@ mod_recruitplot_UI <- function(id, label) {
 #'@seealso \code{\link{mod_recruitplot_UI}}
 #'@export
 #'
-mod_recruitplot_srv <- function(input, output, session, sT_export) {
+mod_recruitplot_srv <- function(input, output, session, sT_export, upload_srv) {
   output$downloadDataRecruitmentPlot <- downloadHandler(
     # This function returns a string which tells the client
     # browser what name to use when saving the file.
@@ -50,5 +51,9 @@ mod_recruitplot_srv <- function(input, output, session, sT_export) {
   )
   output$recruitment_plot <- renderPlot({
     plot_recruitment(sT_export())
+  })
+
+  output$loaded_file <- renderText({
+    paste0("Loaded file: ", upload_srv$loaded_file)
   })
 }

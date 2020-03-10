@@ -24,7 +24,8 @@ mod_upload_UI <- function(id, label){
           hr(),
           actionButton(inputId = ns("use_example_data"), label = "Use example data", icon("lightbulb")),
           hr(),
-          textOutput(ns("example_sT_data"))
+          textOutput(ns("example_sT_data")),
+          com_footer_ui(ns("loaded_file"))
   )
 }
 
@@ -42,6 +43,8 @@ mod_upload_UI <- function(id, label){
 #'@export
 #'
 mod_upload_srv <- function(input, output, session, sT_export){
+  file_info <- reactiveVal()
+
   # read upload data
   observeEvent(input$secuTrial_export_file$datapath, {
     curr_export <- read_secuTrial(input$secuTrial_export_file$datapath)
@@ -65,6 +68,22 @@ mod_upload_srv <- function(input, output, session, sT_export){
         print("Error: Data could not be read.")
       }
     }
+  })
+
+  observe({
+    if(length(sT_export())){
+      if(!is.null(input$secuTrial_export_file$datapath) & basename(sT_export()$export_options$data_dir) == "0.zip"){
+        file_info(basename(input$secuTrial_export_file$name))
+      } else{
+        file_info(basename(sT_export()$export_options$data_dir)) ##works for example not for loaded
+      }
+    } else{
+      file_info("none")
+    }
+  })
+
+  output$loaded_file <- renderText({
+    paste0("Loaded file: ", file_info())
   })
 
   # use example data

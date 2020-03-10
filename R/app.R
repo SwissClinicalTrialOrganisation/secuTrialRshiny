@@ -59,8 +59,8 @@ app_srv <- function(input, output) {
   # init the sT export reactive Val
   sT_export <- reactiveVal()
   # call all server modules
-  callModule(mod_upload_srv, mod$upload, sT_export)
-  callModule(mod_recruitplot_srv, mod$recruitplot, sT_export)
+  upload_srv <- callModule(mod_upload_srv, mod$upload, sT_export)
+  callModule(mod_recruitplot_srv, mod$recruitplot, sT_export, upload_srv)
   callModule(mod_recruittable_srv, mod$recruittable, sT_export)
   callModule(mod_formcomplete_srv, mod$formcomplete, sT_export)
   callModule(mod_visitplan_srv, mod$visitplan, sT_export)
