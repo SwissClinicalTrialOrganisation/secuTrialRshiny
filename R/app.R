@@ -10,21 +10,23 @@ app_ui <- function(){
   # get all module names
   mod <- get_modules()
   # create dashboard page
-  dashboardPage(skin = "red",
+  dashboardPage(skin = "blue",
                 dashboardHeader(title = "SCTO - secuTrialR"),
                 dashboardSidebar(
                   sidebarMenu(
                     # set icon colors
-                    tags$style(".fa-upload {color:#dd4b39}"),
-                    tags$style(".fa-signal {color:#dd4b39}"),
-                    tags$style(".fa-table {color:#dd4b39}"),
-                    tags$style(".fa-percent {color:#dd4b39}"),
-                    tags$style(".fa-calendar-alt {color:#dd4b39}"),
-                    tags$style(".fa-dice {color:#dd4b39}"),
-                    tags$style(".fa-book {color:#dd4b39}"),
-                    tags$style(".fa-download {color:#dd4b39}"),
-                    tags$style(".fa-paper-plane {color:#dd4b39}"),
-                    tags$style(".fa-lightbulb {color:#dd4b39}"),
+
+                    # tags$style(".fa-upload {color:#dd4b39}"),
+                    # tags$style(".fa-signal {color:#dd4b39}"),
+                    # tags$style(".fa-table {color:#dd4b39}"),
+                    # tags$style(".fa-percent {color:#dd4b39}"),
+                    # tags$style(".fa-calendar-alt {color:#dd4b39}"),
+                    # tags$style(".fa-dice {color:#dd4b39}"),
+                    # tags$style(".fa-book {color:#dd4b39}"),
+                    # tags$style(".fa-download {color:#dd4b39}"),
+                    # tags$style(".fa-paper-plane {color:#dd4b39}"),
+                    # tags$style(".fa-lightbulb {color:#dd4b39}"),
+
                     # define sidebar menu items
                     menuItem("Upload", tabName = mod$upload, icon = icon("upload")),
                     menuItem("Recruitment plot", tabName = mod$recruitplot, icon = icon("signal")),
@@ -37,6 +39,9 @@ app_ui <- function(){
                   )
                 ),
                 dashboardBody(
+                  tags$head(
+                    tags$link(rel = "stylesheet", type = "text/css", href = "www/custom2.css")
+                  ),
                   tabItems(
                     # fill dashboard body contents with module UI functions
                     mod_upload_UI(mod$upload, label = mod$upload),
