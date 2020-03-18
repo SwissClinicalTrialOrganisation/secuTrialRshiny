@@ -13,19 +13,27 @@
 mod_upload_UI <- function(id, label){
   ns <- NS(id)
   tabItem(tabName = label,
-          h2("Data upload"),
-          tags$head(tags$style(".progress-bar{background-color:#dd4b39;}")),
-          fileInput(inputId = ns("secuTrial_export_file"),
-                    label = "Choose secuTrial export zip",
-                    multiple = FALSE,
-                    accept = c("zip", "ziparchive", ".zip"),
-                    width = 700),
-          textOutput(ns("read_sT_data")),
-          hr(),
-          actionButton(inputId = ns("use_example_data"), label = "Use example data", icon("lightbulb")),
-          hr(),
-          textOutput(ns("example_sT_data")),
-          com_footer_ui(ns("loaded_file"))
+          fluidRow(
+            h2("Data upload"),
+            br()
+          ),
+          fluidRow(
+            tags$head(tags$style(".progress-bar{background-color:#dd4b39;}")),
+            fileInput(inputId = ns("secuTrial_export_file"),
+                      label = "Choose secuTrial export zip",
+                      multiple = FALSE,
+                      accept = c("zip", "ziparchive", ".zip"),
+                      width = 700),
+            textOutput(ns("read_sT_data")),
+            hr(),
+            actionButton(inputId = ns("use_example_data"), label = "Use example data", icon("lightbulb")),
+            hr(),
+            textOutput(ns("example_sT_data"))
+          ),
+          fluidRow(
+            br(), br(),
+            com_footer_ui(ns("file_info"))
+          )
   )
 }
 
@@ -43,7 +51,7 @@ mod_upload_UI <- function(id, label){
 #'@export
 #'
 mod_upload_srv <- function(input, output, session, sT_export){
-  file_info <- reactiveVal()
+  vals <- reactiveValues()
 
   # read upload data
   observeEvent(input$secuTrial_export_file$datapath, {
@@ -54,7 +62,7 @@ mod_upload_srv <- function(input, output, session, sT_export){
   output$read_sT_data <- renderText({
     # catch exception
     if (is.null(input$secuTrial_export_file$datapath)) {
-      print("Please upload file.")
+      print("Upload status: Please upload file.")
     } else {
       # select centre dropdown for monitoring cases
       ctr <- sT_export()[[sT_export()$export_options$meta_names$centres]]
@@ -63,9 +71,9 @@ mod_upload_srv <- function(input, output, session, sT_export){
       )
 
       if (length(sT_export())) {
-        print("Upload and reading of data successful.")
+        print("Upload status: Upload and reading of data successful.")
       } else {
-        print("Error: Data could not be read.")
+        print("Upload status: Error: Data could not be read.")
       }
     }
   })
@@ -73,17 +81,21 @@ mod_upload_srv <- function(input, output, session, sT_export){
   observe({
     if(length(sT_export())){
       if(!is.null(input$secuTrial_export_file$datapath) & basename(sT_export()$export_options$data_dir) == "0.zip"){
-        file_info(basename(input$secuTrial_export_file$name))
+        vals$file_name <- basename(input$secuTrial_export_file$name)
       } else{
-        file_info(basename(sT_export()$export_options$data_dir)) ##works for example not for loaded
+        vals$file_name <- basename(sT_export()$export_options$data_dir) ##works for example not for loaded
       }
     } else{
-      file_info("none")
+      vals$file_name <- "none"
     }
   })
 
-  output$loaded_file <- renderText({
-    paste0("Loaded file: ", file_info())
+  observe({
+    vals$file_info <- paste0("Loaded file: ", vals$file_name)
+  })
+
+  output$file_info <- renderText({
+    vals$file_info
   })
 
   # use example data
@@ -104,4 +116,5 @@ mod_upload_srv <- function(input, output, session, sT_export){
       btn_labels = "OK"
     )
   })
+  return(vals)
 }

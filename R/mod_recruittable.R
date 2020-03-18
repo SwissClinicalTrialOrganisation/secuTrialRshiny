@@ -14,9 +14,18 @@ mod_recruittable_UI <- function(id, label) {
 
   # Third tab content
   tabItem(tabName = label,
-          h2(id = ns("title"), "Study recruitment"),
-          box(
-            tableOutput(ns("annual_recruitment"))
+          fluidRow(
+            h2(id = ns("title"), "Study recruitment"),
+            br()
+          ),
+          fluidRow(
+            box(
+              tableOutput(ns("annual_recruitment"))
+            )
+          ),
+          fluidRow(
+            br(), br(),
+            com_footer_ui(ns("file_info"))
           )
   )
 }
@@ -33,8 +42,11 @@ mod_recruittable_UI <- function(id, label) {
 #'@seealso \code{\link{mod_recruittable_UI}}
 #'@export
 #'
-mod_recruittable_srv <- function(input, output, session, sT_export) {
+mod_recruittable_srv <- function(input, output, session, sT_export, vals_upload) {
   output$annual_recruitment <- renderTable({
     annual_recruitment(sT_export())
+  })
+  output$file_info <- renderText({
+    vals_upload$file_info
   })
 }

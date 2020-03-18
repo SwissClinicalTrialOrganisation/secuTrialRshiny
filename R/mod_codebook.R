@@ -13,14 +13,23 @@ mod_codebook_UI <- function(id, label) {
   ns <- NS(id)
   # seventh tab codebook
   tabItem(tabName = label,
-          h2("Codebook"),
-          tabsetPanel(
-            tabPanel("Forms", tableOutput(ns("forms"))),
-            tabPanel("Questions", tableOutput(ns("questions"))),
-            tabPanel("Items", tableOutput(ns("items"))),
-            tabPanel("Centres", tableOutput(ns("centres"))),
-            tabPanel("Cases", tableOutput(ns("cases"))),
-            tabPanel("Visitplan", tableOutput(ns("visitplan")))
+          fluidRow(
+            h2("Codebook"),
+            br()
+          ),
+          fluidRow(
+            tabsetPanel(
+              tabPanel("Forms", tableOutput(ns("forms"))),
+              tabPanel("Questions", tableOutput(ns("questions"))),
+              tabPanel("Items", tableOutput(ns("items"))),
+              tabPanel("Centres", tableOutput(ns("centres"))),
+              tabPanel("Cases", tableOutput(ns("cases"))),
+              tabPanel("Visitplan", tableOutput(ns("visitplan")))
+            )
+          ),
+          fluidRow(
+            br(), br(),
+            com_footer_ui(ns("file_info"))
           )
   )
 }
@@ -37,28 +46,26 @@ mod_codebook_UI <- function(id, label) {
 #'@seealso \code{\link{mod_codebook_UI}}
 #'@export
 #'
-mod_codebook_srv <- function(input, output, session, sT_export) {
+mod_codebook_srv <- function(input, output, session, sT_export, vals_upload) {
   output$forms <- renderTable({
     sT_export()[[sT_export()$export_options$meta_names$forms]]
   })
-
   output$questions <- renderTable({
     sT_export()[[sT_export()$export_options$meta_names$questions]]
   })
-
   output$items <- renderTable({
     sT_export()[[sT_export()$export_options$meta_names$items]]#[cols]
   })
-
   output$centres <- renderTable({
     sT_export()[[sT_export()$export_options$meta_names$centres]]
   })
-
   output$cases <- renderTable({
     sT_export()[[sT_export()$export_options$meta_names$casenodes]]#[cols]
   })
-
   output$visitplan <- renderTable({
     sT_export()[[sT_export()$export_options$meta_names$visitplan]]
+  })
+  output$file_info <- renderText({
+    vals_upload$file_info
   })
 }

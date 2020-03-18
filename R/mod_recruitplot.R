@@ -12,12 +12,22 @@
 mod_recruitplot_UI <- function(id, label) {
   ns <- NS(id)
   tabItem(tabName = label,
-          h2(id = ns("title"), "Study recruitment"),
-          box(
-            plotOutput(ns("recruitment_plot"), height = 500, width = 900), width = 1000
+          fluidRow(
+            h2(id = ns("title"), "Study recruitment"),
+            br()
           ),
-          downloadButton(ns("downloadDataRecruitmentPlot"), "Download pdf"),
-          com_footer_ui(ns("loaded_file"))
+          fluidRow(
+            box(
+              plotOutput(ns("recruitment_plot"), height = 500, width = 900), width = 1000
+            )
+          ),
+          fluidRow(
+            downloadButton(ns("downloadDataRecruitmentPlot"), "Download pdf")
+          ),
+          fluidRow(
+            br(), br(),
+            com_footer_ui(ns("file_info"))
+          )
   )
 }
 
@@ -33,7 +43,7 @@ mod_recruitplot_UI <- function(id, label) {
 #'@seealso \code{\link{mod_recruitplot_UI}}
 #'@export
 #'
-mod_recruitplot_srv <- function(input, output, session, sT_export, upload_srv) {
+mod_recruitplot_srv <- function(input, output, session, sT_export, vals_upload) {
   output$downloadDataRecruitmentPlot <- downloadHandler(
     # This function returns a string which tells the client
     # browser what name to use when saving the file.
@@ -53,7 +63,7 @@ mod_recruitplot_srv <- function(input, output, session, sT_export, upload_srv) {
     plot_recruitment(sT_export())
   })
 
-  output$loaded_file <- renderText({
-    paste0("Loaded file: ", upload_srv$loaded_file)
+  output$file_info <- renderText({
+    vals_upload$file_info
   })
 }

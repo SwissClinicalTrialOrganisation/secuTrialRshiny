@@ -12,10 +12,19 @@
 mod_visitplan_UI <- function(id, label) {
   ns <- NS(id)
   tabItem(tabName = label,
-          h2("Visit plan"),
-          box(
-            plotOutput(ns("visit_structure"), height = 500, width = 900),
-            width = 1000
+          fluidRow(
+            h2("Visit plan"),
+            br()
+          ),
+          fluidRow(
+            box(
+              plotOutput(ns("visit_structure"), height = 500, width = 900),
+              width = 1000
+            )
+          ),
+          fluidRow(
+            br(), br(),
+            com_footer_ui(ns("file_info"))
           )
   )
 }
@@ -32,8 +41,11 @@ mod_visitplan_UI <- function(id, label) {
 #'@seealso \code{\link{mod_visitplan_UI}}
 #'@export
 #'
-mod_visitplan_srv <- function(input, output, session, sT_export) {
+mod_visitplan_srv <- function(input, output, session, sT_export, vals_upload) {
   output$visit_structure <- renderPlot({
     plot(visit_structure(sT_export()))
+  })
+  output$file_info <- renderText({
+    vals_upload$file_info
   })
 }
