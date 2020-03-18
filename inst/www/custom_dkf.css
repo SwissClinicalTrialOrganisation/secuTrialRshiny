@@ -4,27 +4,27 @@
 
 /* HEADER */
 .skin-blue .main-header{
-  background-color: #ba1e2b;
+  background-color: #2d373c;
 }
 
 /* HEADER: logo part */
 .skin-blue .main-header .logo,
 .skin-blue .main-header .logo:hover{
-  background-color: #ba1e2b;
+  background-color: #2d373c;
   color: white;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
 }
 /* HEADER: navigation bar */
 .skin-blue .main-header .navbar{
-  background-color: #ba1e2b;
+  background-color: #2d373c;
   color: white;
 }
 
 /* HEADER: menu sidebar-toggle */
 .skin-blue .main-header .navbar .sidebar-toggle,
 .skin-blue .main-header .navbar .sidebar-toggle:hover{
-  background-color: #ba1e2b;
+  background-color: #2d373c;
   color: white;
 }
 
@@ -35,11 +35,11 @@
 
 /* sidebar */
 .skin-blue .main-sidebar{
-  background-color: #e4f1fa;
+  background-color: #a5d7d2;
   color: #444444;
-  background-image: url("https://www.scto.ch/.resources/scto-module/webresources/img/scto/logo.svg");
+  background-image: url("https://dkf.unibas.ch/typo3conf/ext/easyweb/Resources/Public/Images/Logo_Unibas_BraPan_DE.svg?1574928718");
   background-size: 125px 125px;
-  background-position: bottom right;
+  background-position: bottom right 10px;
   background-repeat: no-repeat;
 }
 
@@ -55,22 +55,29 @@
 /* sidebar menu items active and hover */
 .skin-blue .sidebar-menu > li.active > a,
 .skin-blue .sidebar-menu > li:hover > a{
-  border-left-color: #ba1e2b;
+  border-left-color: #2d373c;
   background-color: white;
-  color: #ba1e2b;
+  color: #2d373c;
 }
 
 
 /* tab contents */
 .skin-blue .content-wrapper{
   background-color: white;
+  margin-top: 10px;
+}
+
+.skin-blue .row{
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .skin-blue footer{
     position: absolute;
     bottom: 20px;
     left: 100;
-    color: #444444;
+    color: #555555;
+    font-style: italic;
 }
 
 .skin-blue .wrapper{
@@ -81,13 +88,13 @@
 .skin-blue .js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge,
 .skin-blue .js-irs-0 .irs-single, .js-irs-0 .irs-bar,
 .skin-blue .js-irs-0 .irs-bar{
-  background: #ba1e2b;
-  background-color: #ba1e2b;
-  border-color: #ba1e2b;
+  background: #2d373c;
+  background-color: #2d373c;
+  border-color: #2d373c;
 }
 
 .skin-blue .tabbable > .nav > li.active >a{
-  background-color: #ba1e2b;
+  background-color: #2d373c;
   color: white;
 }
 

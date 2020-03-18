@@ -30,13 +30,13 @@
 
 /* sidebar */
 .skin-blue .sidebar a{
-    color: white;
+    color: #444444;
 }
 
 /* sidebar */
 .skin-blue .main-sidebar{
-  background-color: #444444;
-  color: white;
+  background-color: #e4f1fa;
+  color: #444444;
   background-image: url("https://www.scto.ch/.resources/scto-module/webresources/img/scto/logo.svg");
   background-size: 125px 125px;
   background-position: bottom right;
@@ -65,6 +65,19 @@
 .skin-blue .content-wrapper{
   background-color: white;
   margin-top: 10px;
+}
+
+.skin-blue .row{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.skin-blue footer{
+    position: absolute;
+    bottom: 20px;
+    left: 100;
+    color: #555555;
+    font-style: italic;
 }
 
 .skin-blue .wrapper{

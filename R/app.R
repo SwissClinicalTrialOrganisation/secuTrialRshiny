@@ -27,7 +27,7 @@ app_ui <- function(){
                 ),
                 dashboardBody(
                   tags$head(
-                    tags$link(rel = "stylesheet", type = "text/css", href = "www/custom2.css")
+                    tags$link(rel = "stylesheet", type = "text/css", href = "www/custom_scto.css")
                   ),
                   tabItems(
                     # fill dashboard body contents with module UI functions
@@ -59,12 +59,12 @@ app_srv <- function(input, output) {
   # init the sT export reactive Val
   sT_export <- reactiveVal()
   # call all server modules
-  upload_srv <- callModule(mod_upload_srv, mod$upload, sT_export)
-  callModule(mod_recruitplot_srv, mod$recruitplot, sT_export, upload_srv)
-  callModule(mod_recruittable_srv, mod$recruittable, sT_export)
-  callModule(mod_formcomplete_srv, mod$formcomplete, sT_export)
-  callModule(mod_visitplan_srv, mod$visitplan, sT_export)
-  callModule(mod_monitorcn_srv, mod$monitorcn, sT_export)
-  callModule(mod_codebook_srv, mod$codebook, sT_export)
-  callModule(mod_export_srv, mod$export, sT_export)
+  vals_upload <- callModule(mod_upload_srv, mod$upload, sT_export)
+  callModule(mod_recruitplot_srv, mod$recruitplot, sT_export, vals_upload)
+  callModule(mod_recruittable_srv, mod$recruittable, sT_export, vals_upload)
+  callModule(mod_formcomplete_srv, mod$formcomplete, sT_export, vals_upload)
+  callModule(mod_visitplan_srv, mod$visitplan, sT_export, vals_upload)
+  callModule(mod_monitorcn_srv, mod$monitorcn, sT_export, vals_upload)
+  callModule(mod_codebook_srv, mod$codebook, sT_export, vals_upload)
+  callModule(mod_export_srv, mod$export, sT_export, vals_upload)
 }
