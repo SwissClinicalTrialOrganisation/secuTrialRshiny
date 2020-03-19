@@ -37,10 +37,6 @@
 .skin-blue .main-sidebar{
   background-color: #a5d7d2;
   color: #444444;
-  background-image: url("https://dkf.unibas.ch/typo3conf/ext/easyweb/Resources/Public/Images/Logo_Unibas_BraPan_DE.svg?1574928718");
-  background-size: 125px 125px;
-  background-position: bottom right 10px;
-  background-repeat: no-repeat;
 }
 
 /* sidebar hover */
@@ -60,11 +56,18 @@
   color: #2d373c;
 }
 
+.skin-blue .user-panel > .image > img{
+  width: 175px;
+  max-width: 175px;
+  height: auto;
+  border-radius: 0;
+  margin-bottom: 22px;
+  margin-top: 21px;
+}
 
 /* tab contents */
 .skin-blue .content-wrapper{
   background-color: white;
-  margin-top: 10px;
 }
 
 .skin-blue .row{

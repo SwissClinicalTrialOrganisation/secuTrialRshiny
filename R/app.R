@@ -9,10 +9,14 @@
 app_ui <- function(){
   # get all module names
   mod <- get_modules()
+  style <- get_style("scto")
   # create dashboard page
-  dashboardPage(skin = "blue",
+  dashboardPage(skin = style$skin,
                 dashboardHeader(title = "SCTO - secuTrialR"),
                 dashboardSidebar(
+                  sidebarUserPanel(name = style$logo_title,
+                                   image = style$logo
+                  ),
                   sidebarMenu(
                     # define sidebar menu items
                     menuItem("Upload", tabName = mod$upload, icon = icon("upload")),
@@ -27,7 +31,7 @@ app_ui <- function(){
                 ),
                 dashboardBody(
                   tags$head(
-                    tags$link(rel = "stylesheet", type = "text/css", href = "www/custom_scto.css")
+                    tags$link(rel = "stylesheet", type = "text/css", href = paste0("www/custom_", style$id, ".css"))
                   ),
                   tabItems(
                     # fill dashboard body contents with module UI functions

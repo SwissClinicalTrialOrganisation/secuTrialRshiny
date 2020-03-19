@@ -15,6 +15,7 @@
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
 }
+
 /* HEADER: navigation bar */
 .skin-blue .main-header .navbar{
   background-color: #ba1e2b;
@@ -37,10 +38,6 @@
 .skin-blue .main-sidebar{
   background-color: #e4f1fa;
   color: #444444;
-  background-image: url("https://www.scto.ch/.resources/scto-module/webresources/img/scto/logo.svg");
-  background-size: 125px 125px;
-  background-position: bottom right;
-  background-repeat: no-repeat;
 }
 
 /* sidebar hover */
@@ -60,11 +57,19 @@
   color: #ba1e2b;
 }
 
+.skin-blue .user-panel > .image > img{
+  width: 125px;
+  max-width: 125px;
+  height: auto;
+  max-height: 125px;
+  border-radius: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+}
 
 /* tab contents */
 .skin-blue .content-wrapper{
   background-color: white;
-  margin-top: 10px;
 }
 
 .skin-blue .row{
