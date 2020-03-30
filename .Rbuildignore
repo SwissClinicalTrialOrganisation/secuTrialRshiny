@@ -1,5 +1,8 @@
 ^docs$
 ^_pkgdown\.yml$
 ^appveyor\.yml$
+^.travis\.yml$
+^.github$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^README.*$
