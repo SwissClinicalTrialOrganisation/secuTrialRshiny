@@ -1,5 +1,6 @@
 #' Retrieves a list of style settings
 #'
+#' @param style string defining the css style to be used for the shiny app
 #' @return list of strings containing style settings
 #' @seealso \code{\link{app_ui}}, \code{\link{app_srv}}
 #' @export
@@ -9,7 +10,7 @@ get_style <- function(style = c("scto", "dkf")){
   if (style == "scto"){
     style_settings <- list(
       id = "scto",
-      logo = "https://www.scto.ch/.resources/scto-module/webresources/img/scto/logo.svg",
+      logo = "www/scto_logo.svg",
       logo_title = "",
       dark_col = "#e4f1fa",
       light_col = "#ba1e2b",
@@ -18,7 +19,6 @@ get_style <- function(style = c("scto", "dkf")){
   } else if (style == "dkf"){
     style_settings <- list(
       id = "dkf",
-      # logo = "https://dkf.unibas.ch/typo3conf/ext/easyweb/Resources/Public/Images/Logo_Unibas_BraPan_DE.svg?1574928718",
       logo = "www/dkf_logo.png",
       logo_title = "",
       dark_col = "#e4f1fa",

@@ -4,11 +4,13 @@
 #' upload secuTrial export .zip to the app. This is a prerequisite for using other
 #' modules of secuTrialRshiny.
 #'
-#'@param id string containing a namespace identifier
-#'@param label string to be used as sidebar tab label
-#'@return shiny.tag list object containing the tab item content
-#'@seealso \code{\link{mod_upload_srv}}
-#'@export
+#' @param id string containing a namespace identifier
+#' @param label string to be used as sidebar tab label
+#' @return shiny.tag list object containing the tab item content
+#' @seealso \code{\link{mod_upload_srv}}
+#' @import shiny
+#' @import shinydashboard
+#' @export
 #'
 mod_upload_UI <- function(id, label){
   ns <- NS(id)
@@ -32,7 +34,7 @@ mod_upload_UI <- function(id, label){
           ),
           fluidRow(
             br(), br(),
-            com_footer_ui(ns("file_info"))
+            com_footer_UI(ns("file_info"))
           )
   )
 }
@@ -43,12 +45,15 @@ mod_upload_UI <- function(id, label){
 #' upload secuTrial export .zip to the app. This is a prerequisite for using other
 #' modules of secuTrialRshiny.
 #'
-#'@param input session's input object
-#'@param output session's output object
-#'@param session session object environment
-#'@param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
-#'@seealso \code{\link{mod_upload_UI}}
-#'@export
+#' @param input session's input object
+#' @param output session's output object
+#' @param session session object environment
+#' @param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
+#' @seealso \code{\link{mod_upload_UI}}
+#' @import shiny
+#' @importFrom secuTrialR read_secuTrial
+#' @importFrom shinyWidgets sendSweetAlert
+#' @export
 #'
 mod_upload_srv <- function(input, output, session, sT_export){
   vals <- reactiveValues()
@@ -100,7 +105,7 @@ mod_upload_srv <- function(input, output, session, sT_export){
 
   # use example data
   observeEvent(input$use_example_data, {
-    path <- system.file("extdata", "sT_exports", "longnames",
+    path <- system.file("extdata", "sT_exports", "lnames",
                         "s_export_CSV-xls_CTU05_long_ref_miss_en_utf8.zip",
                         package = "secuTrialR")
     curr_export <- read_secuTrial(path)

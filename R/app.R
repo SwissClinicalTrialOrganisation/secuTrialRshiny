@@ -4,6 +4,8 @@
 #'
 #' @return shiny.tag list object containing the dashboard page
 #' @seealso \code{\link{app_srv}}, \code{\link{run_shiny}}
+#' @import shiny
+#' @import shinydashboard
 #' @export
 #'
 app_ui <- function(){
@@ -55,6 +57,7 @@ app_ui <- function(){
 #' @param input session's input object
 #' @param output session's output object
 #' @seealso \code{\link{app_ui}}, \code{\link{run_shiny}}
+#' @import shiny
 #' @export
 #'
 app_srv <- function(input, output) {

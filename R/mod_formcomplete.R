@@ -3,11 +3,14 @@
 #' This function represents a shiny dashboard UI module that allows users to
 #' view a form completeness table.
 #'
-#'@param id string containing a namespace identifier
-#'@param label string to be used as sidebar tab label
-#'@return shiny.tag list object containing the tab item content
-#'@seealso \code{\link{mod_formcomplete_srv}}
-#'@export
+#' @param id string containing a namespace identifier
+#' @param label string to be used as sidebar tab label
+#' @return shiny.tag list object containing the tab item content
+#' @seealso \code{\link{mod_formcomplete_srv}}
+#' @import shiny
+#' @import shinydashboard
+#' @importFrom shinyWidgets materialSwitch
+#' @export
 #'
 mod_formcomplete_UI <- function(id, label) {
   ns <- NS(id)
@@ -39,7 +42,7 @@ mod_formcomplete_UI <- function(id, label) {
           ),
           fluidRow(
             br(), br(),
-            com_footer_ui(ns("file_info"))
+            com_footer_UI(ns("file_info"))
           )
   )
 }
@@ -49,12 +52,15 @@ mod_formcomplete_UI <- function(id, label) {
 #' This function represents a shiny dashboard server module that allows users to
 #' view a form completeness table.
 #'
-#'@param input session's input object
-#'@param output session's output object
-#'@param session session object environment
-#'@param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
-#'@seealso \code{\link{mod_formcomplete_UI}}
-#'@export
+#' @param input session's input object
+#' @param output session's output object
+#' @param session session object environment
+#' @param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
+#' @param vals_upload reactivevalues list containing the output of \code{\link{mod_upload_srv}}
+#' @seealso \code{\link{mod_formcomplete_UI}}
+#' @import shiny
+#' @importFrom secuTrialR form_status_summary
+#' @export
 #'
 mod_formcomplete_srv <- function(input, output, session, sT_export, vals_upload) {
   output$form_completeness_count <- renderTable({
@@ -64,9 +70,9 @@ mod_formcomplete_srv <- function(input, output, session, sT_export, vals_upload)
       names_count <- names[! grepl(names, pattern = ".percent")]
       if (input$rmat) {
         table <- table[which(! grepl(table$form_name, pattern = "^at")), ]
-        table %>% select(names_count)
+        table[, names_count]
       } else {
-        table %>% select(names_count)
+        table[, names_count]
       }
     }
   })
@@ -78,9 +84,9 @@ mod_formcomplete_srv <- function(input, output, session, sT_export, vals_upload)
       names_perc <- c("form_name", names_perc)
       if (input$rmat) {
         table <- table[which(! grepl(table$form_name, pattern = "^at")), ]
-        table %>% select(names_perc)
+        table[, names_perc]
       } else {
-        table %>% select(names_perc)
+        table[, names_perc]
       }
     }
   })

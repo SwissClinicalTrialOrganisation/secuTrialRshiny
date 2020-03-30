@@ -3,6 +3,7 @@
 #' You can run the web application by calling the run_shiny() function.
 #'
 #' @seealso \code{\link{app_srv}}, \code{\link{app_ui}}
+#' @import shiny
 #' @export
 #'
 run_shiny <- function(){
