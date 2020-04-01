@@ -3,10 +3,13 @@
 #' This is an internal helper function allowing conversion and download of secuTrialdata object
 #' using a shiny::downloadHandler(). Supported file formats are the ones listed in secuTrialR::write_secuTrial().
 #'
-#'@param file_name string containing a file name, including the extension
-#'@param format string containing a format identifier for secuTrialR::write_secuTrial()
-#'@param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
-#'@seealso \code{\link{mod_export_srv}}
+#' @param file_name string containing a file name, including the extension
+#' @param format string containing a format identifier for secuTrialR::write_secuTrial()
+#' @param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
+#' @seealso \code{\link{mod_export_srv}}
+#' @import shiny
+#' @importFrom secuTrialR write_secuTrial
+#' @importFrom utils zip
 #'
 downloader <- function(file_name, format, sT_export) {
   downloadHandler(

@@ -1,0 +1,114 @@
+.skin-blue{
+  font-weight: 400;
+}
+
+/* HEADER */
+.skin-blue .main-header{
+  background-color: #2d373c;
+}
+
+/* HEADER: logo part */
+.skin-blue .main-header .logo,
+.skin-blue .main-header .logo:hover{
+  background-color: #2d373c;
+  color: white;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+}
+/* HEADER: navigation bar */
+.skin-blue .main-header .navbar{
+  background-color: #2d373c;
+  color: white;
+}
+
+/* HEADER: menu sidebar-toggle */
+.skin-blue .main-header .navbar .sidebar-toggle,
+.skin-blue .main-header .navbar .sidebar-toggle:hover{
+  background-color: #2d373c;
+  color: white;
+}
+
+/* sidebar */
+.skin-blue .sidebar a{
+    color: #444444;
+}
+
+/* sidebar */
+.skin-blue .main-sidebar{
+  background-color: #a5d7d2;
+  color: #444444;
+}
+
+/* sidebar hover */
+.skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
+  background-color: white;
+}
+
+/* sidebar menu items */
+.skin-blue .sidebar-menu {
+  color: #444444;
+}
+/* sidebar menu items active and hover */
+.skin-blue .sidebar-menu > li.active > a,
+.skin-blue .sidebar-menu > li:hover > a{
+  border-left-color: #2d373c;
+  background-color: white;
+  color: #2d373c;
+}
+
+.skin-blue .user-panel > .image > img{
+  width: 175px;
+  max-width: 175px;
+  height: auto;
+  border-radius: 0;
+  margin-bottom: 22px;
+  margin-top: 21px;
+}
+
+/* tab contents */
+.skin-blue .content-wrapper{
+  background-color: white;
+}
+
+.skin-blue .row{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.skin-blue footer{
+    position: absolute;
+    bottom: 20px;
+    left: 100;
+    color: #555555;
+    font-style: italic;
+}
+
+.skin-blue .wrapper{
+  background-color: white;
+}
+
+/* slidebar */
+.skin-blue .js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge,
+.skin-blue .js-irs-0 .irs-single, .js-irs-0 .irs-bar,
+.skin-blue .js-irs-0 .irs-bar{
+  background: #2d373c;
+  background-color: #2d373c;
+  border-color: #2d373c;
+}
+
+.skin-blue .tabbable > .nav > li.active >a{
+  background-color: #2d373c;
+  color: white;
+}
+
+.skin-blue .tabbable a{
+  background-color: #444444;
+  color: white;
+}
+
+.skin-blue .swal2-title{
+  color: #444444;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+}

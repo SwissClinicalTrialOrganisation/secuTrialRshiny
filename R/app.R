@@ -4,27 +4,22 @@
 #'
 #' @return shiny.tag list object containing the dashboard page
 #' @seealso \code{\link{app_srv}}, \code{\link{run_shiny}}
+#' @import shiny
+#' @import shinydashboard
 #' @export
 #'
 app_ui <- function(){
   # get all module names
   mod <- get_modules()
+  style <- get_style("scto")
   # create dashboard page
-  dashboardPage(skin = "red",
+  dashboardPage(skin = style$skin,
                 dashboardHeader(title = "SCTO - secuTrialR"),
                 dashboardSidebar(
+                  sidebarUserPanel(name = style$logo_title,
+                                   image = style$logo
+                  ),
                   sidebarMenu(
-                    # set icon colors
-                    tags$style(".fa-upload {color:#dd4b39}"),
-                    tags$style(".fa-signal {color:#dd4b39}"),
-                    tags$style(".fa-table {color:#dd4b39}"),
-                    tags$style(".fa-percent {color:#dd4b39}"),
-                    tags$style(".fa-calendar-alt {color:#dd4b39}"),
-                    tags$style(".fa-dice {color:#dd4b39}"),
-                    tags$style(".fa-book {color:#dd4b39}"),
-                    tags$style(".fa-download {color:#dd4b39}"),
-                    tags$style(".fa-paper-plane {color:#dd4b39}"),
-                    tags$style(".fa-lightbulb {color:#dd4b39}"),
                     # define sidebar menu items
                     menuItem("Upload", tabName = mod$upload, icon = icon("upload")),
                     menuItem("Recruitment plot", tabName = mod$recruitplot, icon = icon("signal")),
@@ -37,6 +32,9 @@ app_ui <- function(){
                   )
                 ),
                 dashboardBody(
+                  tags$head(
+                    tags$link(rel = "stylesheet", type = "text/css", href = paste0("www/custom_", style$id, ".css"))
+                  ),
                   tabItems(
                     # fill dashboard body contents with module UI functions
                     mod_upload_UI(mod$upload, label = mod$upload),
@@ -59,6 +57,7 @@ app_ui <- function(){
 #' @param input session's input object
 #' @param output session's output object
 #' @seealso \code{\link{app_ui}}, \code{\link{run_shiny}}
+#' @import shiny
 #' @export
 #'
 app_srv <- function(input, output) {
@@ -67,12 +66,12 @@ app_srv <- function(input, output) {
   # init the sT export reactive Val
   sT_export <- reactiveVal()
   # call all server modules
-  callModule(mod_upload_srv, mod$upload, sT_export)
-  callModule(mod_recruitplot_srv, mod$recruitplot, sT_export)
-  callModule(mod_recruittable_srv, mod$recruittable, sT_export)
-  callModule(mod_formcomplete_srv, mod$formcomplete, sT_export)
-  callModule(mod_visitplan_srv, mod$visitplan, sT_export)
-  callModule(mod_monitorcn_srv, mod$monitorcn, sT_export)
-  callModule(mod_codebook_srv, mod$codebook, sT_export)
-  callModule(mod_export_srv, mod$export, sT_export)
+  vals_upload <- callModule(mod_upload_srv, mod$upload, sT_export)
+  callModule(mod_recruitplot_srv, mod$recruitplot, sT_export, vals_upload)
+  callModule(mod_recruittable_srv, mod$recruittable, sT_export, vals_upload)
+  callModule(mod_formcomplete_srv, mod$formcomplete, sT_export, vals_upload)
+  callModule(mod_visitplan_srv, mod$visitplan, sT_export, vals_upload)
+  callModule(mod_monitorcn_srv, mod$monitorcn, sT_export, vals_upload)
+  callModule(mod_codebook_srv, mod$codebook, sT_export, vals_upload)
+  callModule(mod_export_srv, mod$export, sT_export, vals_upload)
 }

@@ -4,33 +4,47 @@
 #' generate a list of random participants for monitoring.
 #' The list can be downloaded as a csv file.
 #'
-#'@param id string containing a namespace identifier
-#'@param label string to be used as sidebar tab label
-#'@return shiny.tag list object containing the tab item content
-#'@seealso \code{\link{mod_monitorcn_srv}}
-#'@export
+#' @param id string containing a namespace identifier
+#' @param label string to be used as sidebar tab label
+#' @return shiny.tag list object containing the tab item content
+#' @seealso \code{\link{mod_monitorcn_srv}}
+#' @import shiny
+#' @import shinydashboard
+#' @export
 #'
 mod_monitorcn_UI <- function(id, label) {
   ns <- NS(id)
   tabItem(tabName = label,
-          h2("Return random monitoring cases"),
-          selectInput(inputId = ns("centre"), label = "Specify centre",
-                      choices = c("all")),
-          dateInput(inputId = ns("dateafter"), label = "Return cases after date",
-                    value = "1900-01-01", width = 190),
-          numericInput(inputId = ns("seednumber"), label = "Seed", value = 1, width = 100),
-          setSliderColor(c("#dd4b39"), c(1)),
-          sliderInput(inputId = ns("percentage"), label = "Specify percentage of cases",
-                      min = 1, max = 99, value = 10, width = 400),
-          hr(),
-          actionButton(inputId = ns("create_mon_table"), label = "Submit configuration",
-                       icon("paper-plane")),
-          downloadButton(ns("download_monitoring_cases_csv"), "Cases"),
-          downloadButton(ns("download_monitoring_config_csv"), "Config"),
-          hr(),
-          box(
-            tableOutput(ns("monitoring_cases")),
-            width = 4
+          fluidRow(
+            h2("Return random monitoring cases"),
+            br()
+          ),
+          fluidRow(
+            selectInput(inputId = ns("centre"), label = "Specify centre",
+                        choices = c("all")),
+            dateInput(inputId = ns("dateafter"), label = "Return cases after date",
+                      value = "1900-01-01", width = 190),
+            numericInput(inputId = ns("seednumber"), label = "Seed", value = 1, width = 100),
+            sliderInput(inputId = ns("percentage"), label = "Specify percentage of cases",
+                        min = 1, max = 99, value = 10, width = 400),
+            hr(),
+            actionButton(inputId = ns("create_mon_table"), label = "Submit configuration",
+                         icon("paper-plane"))
+          ),
+          fluidRow(
+            downloadButton(ns("download_monitoring_cases_csv"), "Cases"),
+            downloadButton(ns("download_monitoring_config_csv"), "Config"),
+            hr(),
+          ),
+          fluidRow(
+            box(
+              tableOutput(ns("monitoring_cases")),
+              width = 4
+            )
+          ),
+          fluidRow(
+            br(), br(),
+            com_footer_UI(ns("file_info"))
           )
   )
 }
@@ -41,14 +55,18 @@ mod_monitorcn_UI <- function(id, label) {
 #' generate a list of random participants for monitoring.
 #' The list can be downloaded as a csv file.
 #'
-#'@param input session's input object
-#'@param output session's output object
-#'@param session session object environment
-#'@param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
-#'@seealso \code{\link{mod_monitorcn_UI}}
-#'@export
+#' @param input session's input object
+#' @param output session's output object
+#' @param session session object environment
+#' @param sT_export secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()
+#' @param vals_upload reactivevalues list containing the output of \code{\link{mod_upload_srv}}
+#' @seealso \code{\link{mod_monitorcn_UI}}
+#' @import shiny
+#' @importFrom secuTrialR return_random_participants
+#' @importFrom utils write.csv
+#' @export
 #'
-mod_monitorcn_srv <- function(input, output, session, sT_export) {
+mod_monitorcn_srv <- function(input, output, session, sT_export, vals_upload) {
   # reactive button
   rdm_cases <- eventReactive(input$create_mon_table, {
     perc <- input$percentage / 100
@@ -100,4 +118,8 @@ mod_monitorcn_srv <- function(input, output, session, sT_export) {
       )
     }
   )
+
+  output$file_info <- renderText({
+    vals_upload$file_info
+  })
 }

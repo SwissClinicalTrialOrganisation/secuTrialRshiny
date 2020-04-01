@@ -4,7 +4,7 @@
 \alias{mod_visitplan_srv}
 \title{Shiny module server function for visit plan display}
 \usage{
-mod_visitplan_srv(input, output, session, sT_export)
+mod_visitplan_srv(input, output, session, sT_export, vals_upload)
 }
 \arguments{
 \item{input}{session's input object}
@@ -14,6 +14,8 @@ mod_visitplan_srv(input, output, session, sT_export)
 \item{session}{session object environment}
 
 \item{sT_export}{secuTrialdata object generated e.g. with secuTrialR::read_secuTrial()}
+
+\item{vals_upload}{reactivevalues list containing the output of \code{\link{mod_upload_srv}}}
 }
 \description{
 This function represents a shiny dashboard server module that allows users to
