@@ -6,6 +6,19 @@ init:
         $ErrorActionPreference = "Stop"
         Invoke-WebRequest http://raw.github.com/krlmlr/r-appveyor/master/scripts/appveyor-tool.ps1 -OutFile "..\appveyor-tool.ps1"
         Import-Module '..\appveyor-tool.ps1'
+environment:
+  global:
+    USE_RTOOLS: true
+    R_CHECK_INSTALL_ARGS: "--install-args=--build --no-multiarch "
+    WARNINGS_ARE_ERRORS: 1
+    PYTHON_VERSION: 3.6
+    MINICONDA: C:\Miniconda3-x64
+    R_ARCH: x64
+  matrix:
+    - R_VERSION: release
+
+    - R_VERSION: oldrel
+      CRAN: http://cran.rstudio.com
 
 install:
   ps: Bootstrap
@@ -43,7 +56,3 @@ artifacts:
 
   - path: '\*_*.zip'
     name: Bits
-
-environment:
-  global:
-    USE_RTOOLS: true
